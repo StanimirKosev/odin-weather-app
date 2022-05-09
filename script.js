@@ -4,6 +4,22 @@ async function getLocation(locationName) {
         { mode: 'cors' }
     )
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
+    getData(data)
 }
-getLocation('Ukraine')
+getLocation('Pleven').catch((error) => {
+    console.error(error)
+})
+
+function getData(data) {
+    const myData = {
+        city: data.name,
+        country: data.sys.country,
+        weather: data.weather[0].main,
+        temperature: data.main.temp,
+        feelsLike: data.main.feels_like,
+        wind: data.wind.speed,
+        humidity: data.main.humidity,
+    }
+    return myData
+}
