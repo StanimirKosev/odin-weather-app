@@ -20,7 +20,7 @@ function displayWeather(newData) {
     ).textContent = `${newData.city.toUpperCase()},`
     document.querySelector(
         '.feelsLike'
-    ).textContent = `FEELS LIKE: ${newData.feelsLike}`
+    ).textContent = `Feels like: ${newData.feelsLike}`
     document.querySelector(
         '.humidity'
     ).textContent = `Humidity: ${newData.humidity}%`
@@ -29,7 +29,7 @@ function displayWeather(newData) {
     document.querySelector('.time').textContent = today
     document.querySelector('.country').textContent = newData.country
     document.querySelector('.temperature').textContent = newData.temperature
-    document.querySelector('.wind').textContent = `WIND: ${newData.wind} km/h`
+    document.querySelector('.wind').textContent = `Wind: ${newData.wind} km/h`
 }
 
 async function getLocation(locationName) {
