@@ -6,6 +6,8 @@ Goal: Build a Weather App
 
 ## Features:
 
+-   A user can search for a city and see whats the temperature and weather in real time.
+
 ## Skills learned:
 
 -   Asynchronous JavaScript and API's

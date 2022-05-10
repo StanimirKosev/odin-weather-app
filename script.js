@@ -5,22 +5,16 @@ function getData(data) {
     const myData = {
         city: data.name,
         country: data.sys.country,
+        humidity: data.main.humidity,
         weather: data.weather[0].description,
+        wind: Math.round(data.wind.speed * 3.0096), // Beaufort to Km/h
         temperature: Math.round(data.main.temp - 273.15), // Kelvin to Celsius
         feelsLike: Math.round(data.main.feels_like - 273.15),
-        wind: Math.round(data.wind.speed * 3.0096), // Beaufort to Km/h
-        humidity: data.main.humidity,
     }
     return myData
 }
 
 function displayWeather(newData) {
-    document.querySelector('.time').textContent = today
-    document.querySelector('.country').textContent = newData.country
-    document.querySelector('.temperature').textContent = newData.temperature
-    document.querySelector('.wind').textContent = `WIND: ${newData.wind} km/h`
-    document.querySelector('.weather').textContent =
-        newData.weather.toUpperCase()
     document.querySelector(
         '.city'
     ).textContent = `${newData.city.toUpperCase()},`
@@ -30,9 +24,14 @@ function displayWeather(newData) {
     document.querySelector(
         '.humidity'
     ).textContent = `Humidity: ${newData.humidity}%`
+    document.querySelector('.weather').textContent =
+        newData.weather.toUpperCase()
+    document.querySelector('.time').textContent = today
+    document.querySelector('.country').textContent = newData.country
+    document.querySelector('.temperature').textContent = newData.temperature
+    document.querySelector('.wind').textContent = `WIND: ${newData.wind} km/h`
 }
 
-// async/await practice
 async function getLocation(locationName) {
     try {
         const response = await fetch(
@@ -68,7 +67,6 @@ async function defaultLocation() {
         const data = await response.json()
         const newData = getData(data)
         displayWeather(newData)
-        console.log(data)
     } catch (error) {
         errorMsg.classList.add('active')
     }
