@@ -6,24 +6,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Weather App</title>
         <link rel="stylesheet" href="style.css" />
+
         <script src="script.js" defer></script>
     </head>
     <body>
+        <img src="background.jpg" alt="a picture of the weather" />
         <form onsubmit="return false">
             <!-- doesn't reload page after submit -->
-            <button></button>
+            <button>
+                <ion-icon name="search-sharp"></ion-icon>
+            </button>
             <input type="text" placeholder="Search city" />
-            <div class="errorMsg"></div>
+            <div class="errorMsg">No matching location found!</div>
         </form>
-
         <div class="main-body">
+            <div class="weather"></div>
             <div class="city"></div>
             <div class="country"></div>
-            <div class="weather"></div>
             <div class="temperature"></div>
             <div class="feelsLike"></div>
             <div class="wind"></div>
             <div class="humidity"></div>
+            <div class="celsius-main">&#8451;</div>
+            <div class="celsius-feels-like">&#8451;</div>
+            <div class="time"></div>
         </div>
+        <script
+            type="module"
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+        ></script>
     </body>
 </html>
